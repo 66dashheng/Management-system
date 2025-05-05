@@ -4,74 +4,66 @@
   </a>
 </p>
 
-> **作者：[AntonyCheng](https://github.com/AntonyCheng)**
->
-> **版本号：v2.2.1-jdk17-pre**
->
-> **开源协议：[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html)**
-> 
-> **注意事项：该README跟随版本号的更新而更新，所有Git分支其实都是Pre预览分支，其中最新的内容并不能及时展现在该README中，所以想要使用稳定且具有对应说明的版本，推荐从Releases中下载。但是想要时刻跟进模板开发进度，也可以直接从各个Git分支拉取，查看每次提交的对应说明！**
+# SpringBoot 初始化模板
 
-# SpringBoot初始化模板
+**基于 Java Web 项目的 SpringBoot 框架初始化模板**，该模板整合了常用的框架，广泛支持 JDK11 和 JDK17，部分版本兼容 JDK8，该模板适用于前后端分离项目启动开发，保证大家在此基础上能够快速开发自己的项目，同时也适合入门学习，本项目会由作者持续更新。
 
-**基于 Java Web 项目的 SpringBoot 框架初始化模板**，该模板整合了常用的框架，广泛支持JDK11和JDK17，部分版本兼容JDK8，该模板适用于前后端分离项目启动开发，保证大家在此基础上能够快速开发自己的项目，同时也适合入门学习，本项目会由作者持续更新。
-
-* [SpringBoot初始化模板](#springboot初始化模板)
-  * [软件版本要求](#软件版本要求)
-  * [模板特点](#模板特点)
-    * [主流框架](#主流框架)
-    * [业务特性](#业务特性)
-  * [业务功能](#业务功能)
-    * [示例业务](#示例业务)
-    * [单元测试](#单元测试)
-  * [快速上手](#快速上手)
-    * [必须执行](#必须执行)
-    * [可选执行](#可选执行)
-      * [启动前端项目](#启动前端项目)
-      * [整合Spring AI](#整合spring-ai)
-      * [整合缓存服务](#整合缓存服务)
-        * [整合系统缓存（Redis）](#整合系统缓存redis)
-        * [整合业务缓存（Redisson）](#整合业务缓存redisson)
-        * [整合本地缓存（Caffeine）](#整合本地缓存caffeine)
-      * [整合消息队列](#整合消息队列)
-        * [激活消息队列](#激活消息队列)
-        * [自定义消息队列](#自定义消息队列)
-      * [整合Elasticsearch](#整合elasticsearch)
-      * [整合MongoDB](#整合mongodb)
-      * [整合对象存储服务](#整合对象存储服务)
-        * [整合腾讯云COS](#整合腾讯云cos)
-        * [整合MinIO](#整合minio)
-        * [整合阿里云OSS](#整合阿里云oss)
-      * [整合验证码](#整合验证码)
-      * [整合邮件](#整合邮件)
-      * [整合离线IP库](#整合离线ip库)
-      * [配置国际化](#配置国际化)
-      * [配置SaToken](#配置satoken)
-        * [开启鉴权认证功能](#开启鉴权认证功能)
-          * [鉴权功能](#鉴权功能)
-          * [认证功能](#认证功能)
-        * [开启JWT](#开启jwt)
-          * [整合Redis](#整合redis)
-          * [整合JWT](#整合jwt)
-          * [确认鉴权模式](#确认鉴权模式)
-      * [配置定时任务](#配置定时任务)
-        * [SpringBoot任务调度](#springboot任务调度)
-        * [XxlJob任务调度](#xxljob任务调度)
-        * [PowerJob任务调度](#powerjob任务调度)
-      * [配置WebSocket](#配置websocket)
-      * [配置SpringBootAdmin](#配置springbootadmin)
-      * [配置Canal](#配置canal)
-        * [Canal简介](#canal简介)
-        * [搭建Deployer&Adapter系统](#搭建deployeradapter系统)
-        * [搭建Deployer&Client系统](#搭建deployerclient系统)
-  * [容器化部署](#容器化部署)
-    * [准备工作](#准备工作)
-    * [启动基础组件](#启动基础组件)
-    * [启动前后端服务](#启动前后端服务)
-  * [前端预览](#前端预览)
-  * [申明&联系我](#申明联系我)
-  * [项目历史](#项目历史)
-  * [下一步开发计划](#下一步开发计划)
+- [SpringBoot 初始化模板](#springboot初始化模板)
+  - [软件版本要求](#软件版本要求)
+  - [模板特点](#模板特点)
+    - [主流框架](#主流框架)
+    - [业务特性](#业务特性)
+  - [业务功能](#业务功能)
+    - [示例业务](#示例业务)
+    - [单元测试](#单元测试)
+  - [快速上手](#快速上手)
+    - [必须执行](#必须执行)
+    - [可选执行](#可选执行)
+      - [启动前端项目](#启动前端项目)
+      - [整合 Spring AI](#整合spring-ai)
+      - [整合缓存服务](#整合缓存服务)
+        - [整合系统缓存（Redis）](#整合系统缓存redis)
+        - [整合业务缓存（Redisson）](#整合业务缓存redisson)
+        - [整合本地缓存（Caffeine）](#整合本地缓存caffeine)
+      - [整合消息队列](#整合消息队列)
+        - [激活消息队列](#激活消息队列)
+        - [自定义消息队列](#自定义消息队列)
+      - [整合 Elasticsearch](#整合elasticsearch)
+      - [整合 MongoDB](#整合mongodb)
+      - [整合对象存储服务](#整合对象存储服务)
+        - [整合腾讯云 COS](#整合腾讯云cos)
+        - [整合 MinIO](#整合minio)
+        - [整合阿里云 OSS](#整合阿里云oss)
+      - [整合验证码](#整合验证码)
+      - [整合邮件](#整合邮件)
+      - [整合离线 IP 库](#整合离线ip库)
+      - [配置国际化](#配置国际化)
+      - [配置 SaToken](#配置satoken)
+        - [开启鉴权认证功能](#开启鉴权认证功能)
+          - [鉴权功能](#鉴权功能)
+          - [认证功能](#认证功能)
+        - [开启 JWT](#开启jwt)
+          - [整合 Redis](#整合redis)
+          - [整合 JWT](#整合jwt)
+          - [确认鉴权模式](#确认鉴权模式)
+      - [配置定时任务](#配置定时任务)
+        - [SpringBoot 任务调度](#springboot任务调度)
+        - [XxlJob 任务调度](#xxljob任务调度)
+        - [PowerJob 任务调度](#powerjob任务调度)
+      - [配置 WebSocket](#配置websocket)
+      - [配置 SpringBootAdmin](#配置springbootadmin)
+      - [配置 Canal](#配置canal)
+        - [Canal 简介](#canal简介)
+        - [搭建 Deployer&Adapter 系统](#搭建deployeradapter系统)
+        - [搭建 Deployer&Client 系统](#搭建deployerclient系统)
+  - [容器化部署](#容器化部署)
+    - [准备工作](#准备工作)
+    - [启动基础组件](#启动基础组件)
+    - [启动前后端服务](#启动前后端服务)
+  - [前端预览](#前端预览)
+  - [申明&联系我](#申明联系我)
+  - [项目历史](#项目历史)
+  - [下一步开发计划](#下一步开发计划)
 
 ## 软件版本要求
 
@@ -79,7 +71,7 @@ MySQL 8.0.X（推荐）
 
 Redis 7.X.X（强制）
 
-Elasticsearch 7.X.X（强制，特别推荐7.14.0）
+Elasticsearch 7.X.X（强制，特别推荐 7.14.0）
 
 RaabbitMQ 3.X.X（推荐）
 
@@ -103,9 +95,9 @@ RaabbitMQ 3.X.X（推荐）
 - **前端模板**
   - vue-admin-template 4.4.0 == 这是一个极简的 vue admin 管理后台，只包含了 Vue 2 & Element UI & axios & iconfont & permission control & lint
 - **Spring AI 1.1.0**
-  - spring-ai-openai-spring-boot-starter == Spring AI OpenAI模型依赖
-  - spring-ai-zhipuai-spring-boot-starter == Spring AI 智谱AI模型依赖
-  - spring-ai-ollama-spring-boot-starter == Spring AI Ollama框架AI模型依赖
+  - spring-ai-openai-spring-boot-starter == Spring AI OpenAI 模型依赖
+  - spring-ai-zhipuai-spring-boot-starter == Spring AI 智谱 AI 模型依赖
+  - spring-ai-ollama-spring-boot-starter == Spring AI Ollama 框架 AI 模型依赖
 - **Netty**
   - netty-all 4.1.114.Final == Netty 框架
 - **数据驱动层**
@@ -150,7 +142,7 @@ RaabbitMQ 3.X.X（推荐）
   - logstash-logback-encoder 7.3 == Logstash 依赖
 - **对象存储（OSS）**
   - cos_api 5.6.233 == 腾讯云 COS
-  - aliyun-sdk-oss 3.18.1 == 阿里云 OSS 
+  - aliyun-sdk-oss 3.18.1 == 阿里云 OSS
   - minio 8.5.12 == Minio 对象存储
 - **文件操作**
   - poi 5.3.0 == 操作 Word
@@ -159,7 +151,7 @@ RaabbitMQ 3.X.X（推荐）
   - x-easypdf 3.1.1 == 操作 PDF
   - thymeleaf 3.1.2.RELEASE == 操作 PDF Thymeleaf 模板
   - jte 2.3.2 == 操作 PDF JTE 数据源模板
-- **接口文档 & API调试**
+- **接口文档 & API 调试**
   - knife4j-openapi3-jakarta-spring-boot-starter 4.5.0 == Knife4j 依赖
 - **外接平台（建议生产环境上使用 Docker 容器化技术自行部署一套平台，不要通过模板中的模块代码直接进行编译部署，主要原因是为了适配模板，外接平台中的某些代码被作者修改过）**
   - xxl-job-core 2.4.1 == 分布式定时任务管理平台
@@ -172,7 +164,7 @@ RaabbitMQ 3.X.X（推荐）
 - 使用 Undertow 服务器替换掉 Tomcat 服务器，无阻塞更适合高并发
 - Web UI 选用 vue-admin-template 前端模板，基于 Vue 2 和 Element UI ，极易上手开发调试
 - SaToken 可配置分布式登录 & 认证 & 鉴权
-- Spring AI 接入大语言模型（OpenAI、智谱清言以及Ollama本地大模型）
+- Spring AI 接入大语言模型（OpenAI、智谱清言以及 Ollama 本地大模型）
 - AOP 逻辑处理示例
 - Docker Compose 脚本”一键部署“
 - 自定义注解处理示例
@@ -224,7 +216,7 @@ RaabbitMQ 3.X.X（推荐）
 
 ### 必须执行
 
-1. 执行 `sql/init_db.sql` 、 `sql/init_xxl_job.sql` 以及 ` sql/init_power_job.sql` 文件，模板默认管理员账号：admin，默认用户账号：user，密码均为123456；
+1. 执行 `sql/init_db.sql` 、 `sql/init_xxl_job.sql` 以及 ` sql/init_power_job.sql` 文件，模板默认管理员账号：admin，默认用户账号：user，密码均为 123456；
 
 2. 修改 `src/main/resources/mysql/mysql-xxx.yaml` 文件（ `xxx` 取决于 application.yaml 文件中激活的配置项）：
 
@@ -237,9 +229,9 @@ RaabbitMQ 3.X.X（推荐）
        username: root
        password: 123456
    ```
-   
+
    > 在这个文件中还能看到很多其他的配置，如有需要，请开发者自行学习 ShardingSphere 5.5.0 版本框架，理解相关配置；
-   
+
 3. 直到这一步之后，模板后端代码就已经可以直接启动了，访问 `http://localhost:38080/api/doc.html` 即可打开接口文档；
 
 ### 可选执行
@@ -250,9 +242,9 @@ RaabbitMQ 3.X.X（推荐）
 
 如果需要启动前端进行开发或者调试，开发者需要前往 `ui` 文件夹，打开 `vue-admin-template` 项目，参考其 `README.md` 文件启动即可。
 
-#### 整合Spring AI
+#### 整合 Spring AI
 
-如今AIGC在开发过程中或多或少会被实际运用，而它们确实能够为开发者带来许多便利，提高开发效率，所以作为开发者能够基于AIGC开发应用将会是一条必经之路，赋予底层开发模板AI能力自然而然变成了顺应时代潮流的事情。而 Spring AI 可谓是后起之秀，它在 Java 领域开发 AI 应用大概率会成为主流，著名的 Spring Cloud Alibaba 宣称在2023版本支持 Spring AI 就证明了这一点，所以该模板也整合了 Spring AI。目前配置文件内容如下：
+如今 AIGC 在开发过程中或多或少会被实际运用，而它们确实能够为开发者带来许多便利，提高开发效率，所以作为开发者能够基于 AIGC 开发应用将会是一条必经之路，赋予底层开发模板 AI 能力自然而然变成了顺应时代潮流的事情。而 Spring AI 可谓是后起之秀，它在 Java 领域开发 AI 应用大概率会成为主流，著名的 Spring Cloud Alibaba 宣称在 2023 版本支持 Spring AI 就证明了这一点，所以该模板也整合了 Spring AI。目前配置文件内容如下：
 
 ```yaml
 spring:
@@ -308,7 +300,7 @@ spring:
 
 系统缓存服务主要为一些依赖 spring-boot-starter-data-redis 原生操作的框架而设计，例如模板中用于校验权限的 SaToken 框架就有借用 Redis 进行分布式登录或校验的需求，系统缓存的过程对开发者能做到透明。
 
-1. 取消排除 `RedisAutoConfiguration`  类：
+1. 取消排除 `RedisAutoConfiguration` 类：
 
    ```yaml
    spring:
@@ -322,7 +314,7 @@ spring:
 2. 修改 Redis 相关配置，切记注意单机模式和集群模式无法共存，默认开启单机模式，注释掉集群模式相关代码，同时默认没有密码，所以密码也被注释掉：
 
    ```yaml
-   spring: 
+   spring:
      data:
        # 系统缓存Redis配置（这里的Redis配置主要用于鉴权认证等模板自带服务的系统缓存服务，要求Redis版本在7.0以上）
        redis:
@@ -427,7 +419,7 @@ spring:
        # 发布和订阅连接池大小
        subscription-connection-pool-size: 25
    ```
-   
+
 2. 此时项目就能够直接启动， Redisson 相关配置就完成了，模板为了降低开发者的模板使用门槛，特意针对 Redisson 进行进一步封装，在 `top.sharehome.springbootinittemplate.utils.redisson` 包中设计了缓存工具类 CacheUtils 、限流工具类 RateLimitUtils 以及 LockUtils 分布式锁工具类供开发者使用，使用参考示例单元测试类。
 
 ##### 整合本地缓存（Caffeine）
@@ -494,7 +486,7 @@ spring:
          simple:
            acknowledge-mode: manual
    ```
-   
+
 2. 配置好之后即可启动项目，在模板中存在默认的三个消息队列配置，它们在 `top.sharehome.springbootinittemplate.config.rabbitmq.defaultMq` 包下，分别是 `DefaultRabbitMq` （默认的普通队列）、`DefaultRabbitMqWithDlx` （默认的带有死信队列的消息队列）、`DefaultRabbitMqWithDelay` （默认的延迟队列），这三个队列可以直接使用，它们在 `top.sharehome.springbootinittemplate.utils.rabbitmq.RabbitMqUtils` 工具类中由“default”开头的方法，当然开发者也可以按照一定的模板规则来自定义消息队列，这些消息队列会与 RabbitMqUtils 工具类兼容。
 
 ##### 自定义消息队列
@@ -513,7 +505,7 @@ spring:
 
 注意：这里只给出了最简单的自定义方式，开发者在理解这种“替换”变换和阅读相关源码的基础上可以对模板进行更加自定义的改造。
 
-#### 整合Elasticsearch
+#### 整合 Elasticsearch
 
 与其说是整合 Elasticsearch 搜索引擎，不如说是整合 Easy-ES 框架，正因为 Easy-ES 框架过于强大， Elasticsearch 中繁琐的操作才能得以简化，但是不要依赖这个工具而不去深入了解学习 Elasticsearch 这个伟大的搜索引擎，Easy-ES 的开发者就已经说得很明白了：这套框架的是站在 elasticsearch-rest-high-level-client 和 MyBatis-Plus 的肩膀上创作的，而前者的底层操作逻辑正是 Elasticsearch 的操作逻辑。
 
@@ -534,16 +526,16 @@ spring:
      #password:
      # 多数据源
      #dynamic:
-       #datasource:
-         #ds1:
-           #address: 127.0.0.1:9201
-           # 如果无账号密码则可不配置此行
-           #username:
-           # 如果无账号密码则可不配置此行
-           #password:
-           #...（以下配置和单数据源类似）
-         #ds2:
-           #...（以下配置和ds1相似）
+     #datasource:
+     #ds1:
+     #address: 127.0.0.1:9201
+     # 如果无账号密码则可不配置此行
+     #username:
+     # 如果无账号密码则可不配置此行
+     #password:
+     #...（以下配置和单数据源类似）
+     #ds2:
+     #...（以下配置和ds1相似）
      # 默认为http 可缺省
      schema: http
      # 打印banner 若您不期望打印banner,可配置为false（预先关闭）
@@ -594,11 +586,11 @@ spring:
    @EsMapperScan("xxx.xxx.xxx.mapper")
    ......
    public class MainApplication {
-   
+
        public static void main(String[] args) {
            SpringApplication.run(MainApplication.class, args);
        }
-   
+
    }
    ```
 
@@ -617,7 +609,7 @@ spring:
 
 5. 该模板中也提供了使用的一个范例，在 `top.sharehome.springbootinittemplate.elasticsearch` 包中，同时在测试用例中也存在相关框架操作，如果还想了解更多，请在 Easy-ES 官网自行学习。
 
-#### 整合MongoDB
+#### 整合 MongoDB
 
 MongoDB 作为最受欢迎的非关系型数据库之一，主要目的是解决“三高”需求，即高并发、高访问以及高可用。具体的一些应用场景如下：
 
@@ -648,7 +640,7 @@ spring:
 
 **说明**：对象存储是一种计算机数据存储架构，旨在处理大量非结构化数据，说直白点主要就是存储文件这一类数据，其中腾讯云 COS 和 MinIO 对象存储是可以对文件进行网页预览的，而阿里云 OSS 则需要配置自定义域名（从 2024 年起腾讯云 COS 也将对新建的桶作此要求，在次之前建立的桶不受影响），所以针对于个人的中小型项目，推荐优先使用腾讯云 COS 和 MinIO 对象存储服务，以免给自己挖坑。
 
-##### 整合腾讯云COS
+##### 整合腾讯云 COS
 
 该模板中整合腾讯云 COS 非常容易，仅仅需要开发者开通腾讯云 COS 服务，从中获取到一些必要的参数：
 
@@ -678,12 +670,12 @@ oss:
 
 修改完之后即可使用模板中对象存储工具类 `top.sharehome.springbootinittemplate.utils.oss.tencent.TencentUtils` ，这个类中提供文件上传和文件删除的操作，至于文件下载，通常是上传后拿到文件地址，当需要下载时直接访问文件地址即可。
 
-##### 整合MinIO
+##### 整合 MinIO
 
 该模板中整合 MinIO 非常容易，仅仅需要开发者部署 MinIO 服务，从中获取到一些必要的参数：
 
 - endpoint ==> 域名
-- enableTls ==> 是否开启TLS
+- enableTls ==> 是否开启 TLS
 - secretId ==> 用户公钥
 - secretKey ==> 用户私钥
 - bucketName ==> 桶名称
@@ -711,7 +703,7 @@ oss:
 
 修改完之后即可使用模板中对象存储工具类 `top.sharehome.springbootinittemplate.utils.oss.minio.MinioUtils` ，这个类中提供文件上传和文件删除的操作，至于文件下载，通常是上传后拿到文件地址，当需要下载时直接访问文件地址即可。
 
-##### 整合阿里云OSS
+##### 整合阿里云 OSS
 
 该模板中整合阿里云 OSS 非常容易，仅仅需要开发者开通阿里云 OSS 服务，从中获取到一些必要的参数：
 
@@ -774,7 +766,7 @@ oss:
      # 验证码存活时间（单位：秒）
      expired: 180
    ```
-   
+
 2. 配置完成之后只需要以 GET 请求调用 `/api/captcha` 接口即可获取验证码图片的 Base64 编码值以及该验证码的 UUID ，前端拿到 Base64 编码值之后将其转换为图片即可；
 
 3. 该模板将 AOP 应用于验证码校验，使用自定义注解 `@EnableCaptcha` 即可做到校验，校验的前提就是被校验方法是一个 POST 请求，且在接受请求体参数实体类中需要存在一个名为 `captcha` 的 `Captcha` 类型（位置在 `top.sharehome.springbootinittemplate.config.captcha.model.Captcha` ）参数字段，下面以登录接口为例：
@@ -807,26 +799,26 @@ oss:
    @NoArgsConstructor
    @Accessors(chain = true)
    public class AuthLoginDto implements Serializable {
-   
+
        /**
         * 用户账号
         */
        @NotBlank(message = "账号不能为空", groups = {GetGroup.class})
        private String account;
-   
+
        /**
         * 用户密码
         */
        @NotBlank(message = "密码不能为空", groups = {GetGroup.class})
        private String password;
-   
+
        /**
         * 校验验证码参数实体类
         */
        private Captcha captcha;
-   
+
        private static final long serialVersionUID = -2121896284587465661L;
-   
+
    }
    ```
 
@@ -878,9 +870,9 @@ spring:
 
 修改完之后即可使用模板中邮件工具类 `top.sharehome.springbootinittemplate.utils.email.MailUtils` ，这个类中提供多种邮件发送的操作，这里针对于带有文件的邮件进行一些阐述：如果发送 HTML 内联图片邮件，那么每张图片的大小不得超过 5 MB，如果发送附件，那么每个附件的大小不得超过 50 MB，一封邮件的总大小不得超过 50 MB。
 
-#### 整合离线IP库
+#### 整合离线 IP 库
 
-系统的安全问题并不能只靠系统自身被动防御，还需要对外界请求做出主动监控和日志检测，其中就离不开对用户的操作进行留痕操作，网络世界上最有力的留痕操作就是记录用户每一步都干了什么，至少得知道用户发出请求的客户端的信息是什么，所以离线 IP 就应运而生，模板中整合的离线 IP 库为 **ip2region** ，它是一个离线IP地址定位库和IP定位数据管理框架，10微秒级别的查询效率，提供了众多主流编程语言的 `xdb` 数据生成和查询客户端实现。
+系统的安全问题并不能只靠系统自身被动防御，还需要对外界请求做出主动监控和日志检测，其中就离不开对用户的操作进行留痕操作，网络世界上最有力的留痕操作就是记录用户每一步都干了什么，至少得知道用户发出请求的客户端的信息是什么，所以离线 IP 就应运而生，模板中整合的离线 IP 库为 **ip2region** ，它是一个离线 IP 地址定位库和 IP 定位数据管理框架，10 微秒级别的查询效率，提供了众多主流编程语言的 `xdb` 数据生成和查询客户端实现。
 
 1. 修改离线 IP 库的配置，选择数据加载方式即可：
 
@@ -890,7 +882,7 @@ spring:
      # 数据加载方式
      load-type: memory
    ```
-   
+
    说明：数据加载方式一共有三种，内存加载、索引加载、文件加载，它们占用内存和查询效率均依次降低。
 
 2. 接下来直接使用 `top.sharehome.springbootinittemplate.utils.net` 包下 ` NetUtils` 工具类即可。
@@ -938,22 +930,22 @@ spring:
    ```java
    @Getter
    public enum LocaleType {
-   
+
        // 注意格式：
        // 1、Locale类中构造参数：language全小写，country全大写
        // 2、枚举中枚举名称均大写并以"_"隔开
        EN_US(new Locale("en", "US")),
-   
+
        ZH_CN(new Locale("zh", "CN")),
-   
+
        ZH_TW(new Locale("zh", "TW")); //这里是新增的中文繁体
-   
+
        final private Locale locale;
-   
+
        LocaleType(Locale locale) {
            this.locale = locale;
        }
-   
+
    }
    ```
 
@@ -967,7 +959,7 @@ spring:
     */
    @RestController
    public class I18nDemoController {
-   
+
        @GetMapping("/i18n")
        public R<String> welcome(@RequestParam String name) {
            int seed = new Random().nextInt();
@@ -977,13 +969,13 @@ spring:
                return R.ok(I18nManager.getMessage("welcome", name));
            }
        }
-   
+
    }
    ```
-   
-   核心操作就是在请求 URL 之后添加参数名为 `lang` 的参数，并且将其赋值为 `zh_tw`（这里传入大写小写无所谓，但是要用"_"将语言和地区隔开） ，例如 `localhost:38080/i18n?lang=zh_tw`，控制器中返回和国际化词典文件相对应的键值即可。
 
-#### 配置SaToken
+   核心操作就是在请求 URL 之后添加参数名为 `lang` 的参数，并且将其赋值为 `zh_tw`（这里传入大写小写无所谓，但是要用"\_"将语言和地区隔开） ，例如 `localhost:38080/i18n?lang=zh_tw`，控制器中返回和国际化词典文件相对应的键值即可。
+
+#### 配置 SaToken
 
 **说明**：与其说配置 SaToken ，不如说是介绍该模板中封装的两个 SaToken 特性：
 
@@ -1066,9 +1058,9 @@ public class AuthorizationConfiguration implements StpInterface {
 
 认证主要负责校验用户的在线状态，大多数系统的认证逻辑就是用户没有登录就不能使用绝大部分系统功能，该模板默认实现认证功能，但是在长期的开发过程中就会发现各式各样的框架型模板调试过程会因为认证功能而变得麻烦。所以该模板允许开发者决定是否开启认证功能，也就是说开发者能够在非登录状态下去调试代码，也可以发布不需要登录的 Web 项目，但是此处需要**注意：`enable-sa` 配置项仅仅只决定了 SaToken 相关的认证鉴权注解是否可用，而 `StpUtil.login()` 方法依旧可以使用，大白话就是程序仍然允许用户进行登录，但是如果在没登陆的情况下调用登录状态下才能调用的方法（例如 `StpUtil.getLoginUserId()`）就会抛出“未登陆”的异常**。
 
-##### 开启JWT
+##### 开启 JWT
 
-###### 整合Redis
+###### 整合 Redis
 
 由于 JWT 无状态且可解析，避免存在篡改之后对系统进行操作，强烈建议不要单独使用，将其存入 Redis 缓存数据库中交给系统直接管理，此时就需要整合 Redis ，这一步相比于单独整合缓存服务中的整合 Redis 多一些步骤，可以说这一步是其超集，但是也很简单，见如下配置文件修改：
 
@@ -1117,7 +1109,7 @@ spring:
           max-wait: 3000
 ```
 
-###### 整合JWT
+###### 整合 JWT
 
 JWT 全称是 JSON Web Tokens ，见名知意， JWT 就是一种内容为 JSON 的校验凭证，Web 应用凭证校验的方式一般分为两种：一种是 Session + Cookie，另一种就是 Cache + JWT，前者主要特点就是单机式、服务端管理凭证，后者主要特点就是分布式、客户端管理凭证，两种方式各有千秋，想知道具体优劣请移步于百度，但要注意 JWT 是一种可解析的凭证，也就是说一旦客户端拿到这个凭证就能拿到其中的明文信息，所以通常让 JWT 和 Redis 搭配使用，不交给用户直接管理，所以该模板中默认不使用 JWT 的凭证模式，开发者需要自行开启。
 
@@ -1159,7 +1151,7 @@ sa-token:
 
 定时任务对于一个后端系统来说非常使用，它从某种意义上实现了系统业务的解耦，让系统不再是一个只会响应请求的“单机废物”，例如可以用它设计轮询推送服务，虽然一般服务器接受不了高频的阻塞轮询，不能保证数据的实时情况，但是也赋予了系统这样的功能。接下来从实现和部署方式的角度由易到难介绍一下模板中三种定时任务的调度方案。
 
-##### SpringBoot任务调度
+##### SpringBoot 任务调度
 
 SpringBoot 中自带有一些任务调度方案，我们通常将其称为“定时任务”，模板中这样的定时任务主要分为两类，第一类是全量任务，第二类是循环任务；
 
@@ -1195,12 +1187,12 @@ SpringBoot 中自带有一些任务调度方案，我们通常将其称为“定
    @Slf4j
    @Conditional(ScheduleOnceCondition.class)
    public class OnceJob implements CommandLineRunner {
-   
+
        @Override
        public void run(String... args) throws Exception {
            log.info("Running Application Init:{}", new Date());
        }
-   
+
    }
    ```
 
@@ -1218,7 +1210,7 @@ SpringBoot 中自带有一些任务调度方案，我们通常将其称为“定
    @Slf4j
    @Conditional(ScheduleCycleCondition.class)
    public class CycleJob {
-   
+
        /**
         * 固定间隔时间任务
         * 注解表示一分钟执行一次
@@ -1227,7 +1219,7 @@ SpringBoot 中自带有一些任务调度方案，我们通常将其称为“定
        public void fixedTimeJob() {
            log.info("Fixed time execution:{}", new Date());
        }
-   
+
        /**
         * 定时任务
         * 注解使用Cron表达式(cron = "秒 分 时 天 月 周")
@@ -1236,11 +1228,11 @@ SpringBoot 中自带有一些任务调度方案，我们通常将其称为“定
        public void scheduledTimeJob() {
            log.info("Scheduled time execution:{}", new Date());
        }
-   
+
    }
    ```
 
-##### XxlJob任务调度
+##### XxlJob 任务调度
 
 XxlJob 是一个开箱即用的轻量级分布式任务调度系统，其核心设计目标是开发迅速、学习简单、轻量级、易扩展，在开源社区广泛流行，已在多家公司投入使用。 XxlJob 开源协议采用的是 GPL ，因此云厂商无法直接商业化托管该产品，各大中小企业需要自建，增加了学习成本、机器成本、人工运维成本。
 
@@ -1301,9 +1293,9 @@ XxlJob 是一个开箱即用的轻量级分布式任务调度系统，其核心�
 
 3. 该模板提供了各种调度任务的示例代码，这些代码放在 `top.sharehome.springbootinittemplate.job.distributed.xxljob.SampleService` 类中，至此模板中关于 XxlJob 的内容就结束了，如果想要使用 XxlJob 分布式调度系统，请前往其官方网站仔细阅读文档并且按要求编码。
 
-##### PowerJob任务调度
+##### PowerJob 任务调度
 
-PowerJob是全新一代分布式任务调度与计算框架，其主要功能特性如下：
+PowerJob 是全新一代分布式任务调度与计算框架，其主要功能特性如下：
 
 - 提供前端 Web 界面支持，有完善的定时策略；
 - 执行模式丰富，其中最大的特点是支持 Map/MapReduce 处理器，能够让开发者寥寥数行代码获得集群分布式计算的能力；
@@ -1410,7 +1402,7 @@ PowerJob是全新一代分布式任务调度与计算框架，其主要功能特
 
 3. 该模板提供了各种调度任务的示例代码，这些代码放在 `top.sharehome.springbootinittemplate.job.distributed.powerjob` 包中，至此模板中关于 PowerJob 的内容就结束了，如果想要使用 PowerJob 分布式调度系统，请前往其官方网站仔细阅读文档并且按要求编码。
 
-#### 配置WebSocket
+#### 配置 WebSocket
 
 如果想拥有正真意义上的服务器推送功能，目前有两种解决方案，第一种是 Server-Send Event（SSE） 单工通信机制，第二种是 WebSocket 全双工通信机制，该模板中给出了基于 Netty 框架搭建的 WebSocket 相关配置，具体编码方法请见：[Netty 学习示例仓库](https://github.com/AntonyCheng/netty-study-demo)。
 
@@ -1431,7 +1423,7 @@ websocket:
 
 然后根据具体业务修改模板中已有代码即可，相关代码在 `top.sharehome.springbootinittemplate.config.websocket` 包下。
 
-#### 配置SpringBootAdmin
+#### 配置 SpringBootAdmin
 
 SpringBoot Admin 能够将 Actuator 中的信息进行界面化的展示，也可以监控所有 Spring Boot 应用的健康状况，提供实时警报功能，和 XxlJob 一样需要先部署，当然在该模板中的 `module` 文件夹中有一个 spring-boot-admin 模块，不用对其进行任何修改，但是需要前往其 `application-xxx.yaml` 文件中查看部署后的地址：
 
@@ -1485,9 +1477,9 @@ spring:
 
 如果还想将 XxlJob 分布式任务调度系统整合进入 SpringBoot Admin 中，那就进行和上面相同的操作即可。
 
-#### 配置Canal
+#### 配置 Canal
 
-##### Canal简介
+##### Canal 简介
 
 Canal 是 Alibaba 开发的基于 MySQL 数据库的增量日志解析工具，主要用于从 MySQL 到其他数据介质的数据流（主要包括 MySQL 、Kafka 、Elasticsearch 、MQ 以及 Log ）同步，类似的业务包括如下：
 
@@ -1498,7 +1490,7 @@ Canal 是 Alibaba 开发的基于 MySQL 数据库的增量日志解析工具，�
 - 带业务逻辑的增量数据处理；
 - ......
 
-##### 搭建Deployer&Adapter系统
+##### 搭建 Deployer&Adapter 系统
 
 Deployer （Canal-Deployer） 是该系统的主体，它的作用是将自己包装成 MySQL 的从库，进而监听 MySQL 的增量日志（binlog），同时能够将其解析并读取。
 
@@ -1510,7 +1502,7 @@ Deployer 只能监听一个 MySQL 的增量日志。
 
 这个体系的搭建在 `module/canal-component` 文件夹中有具体介绍。
 
-##### 搭建Deployer&Client系统
+##### 搭建 Deployer&Client 系统
 
 该系统和 Deployer & Adapter 系统的区别就在于该系统需要开发者自己写客户端，模板中已经存在了一个客户端示例代码类： `top.sharehome.springbootinittemplate.config.canal.example.SimpleCanalClientExample` ，同样的，Deployer 的部署在 `module/canal-component` 文件夹中有具体介绍，开发者可以参考示例代码类进行相关功能的开发。
 
@@ -1648,8 +1640,8 @@ docker compose up -d
 
 ## 下一步开发计划
 
-* 优化AI模块，设计工具类
-* 调研Spring Boot WebSocket
-* 围绕JSoup设计爬虫工具类
-* 扩展新的前端模板
-* ......
+- 优化 AI 模块，设计工具类
+- 调研 Spring Boot WebSocket
+- 围绕 JSoup 设计爬虫工具类
+- 扩展新的前端模板
+- ......
